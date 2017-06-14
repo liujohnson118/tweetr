@@ -12,6 +12,7 @@
 * Sample tweet data given
 */
 
+"use strict";
 var data = [
   {
     "user": {
@@ -66,6 +67,7 @@ var data = [
 * Output: tweet-an article element to be placed in index.html for item ID allTweets
 */
 function createTweetElement(tweetData){
+
   let tweet = $("<article>").addClass("tweet");
   let tweetHeader = $("<header>"); //Create header for tweet
   let tweetFooter = $("<footer>"); //Create footer for tweet
@@ -90,8 +92,9 @@ function createTweetElement(tweetData){
   tweetHeader.append("<div class='clearfix'></div>");
 
   //Begin editing footer
-  const creationTime=new Date();
-  tweetFooter.append($("<span class='ago'>").text((new Date()-creationTime)+"ms ago"));
+  let creationTime = new Date(tweetData.created_at);
+  creationTime=String(creationTime).split("GMT")[0];
+  tweetFooter.append($("<span class='ago'>").text("Posted at "+creationTime));
   tweetFooter.append("<i class='fa fa-heart' aria-hidden='true'></i>");
   tweetFooter.append("<i class='fa fa-retweet' aria-hidden='true'></i>");
   tweetFooter.append("<i class='fa fa-flag' aria-hidden='true'></i>");
@@ -106,6 +109,7 @@ function createTweetElement(tweetData){
   tweet.append("<div class='clearfix'></div>");
   return tweet;
 }
+
 
 /*
 * Function to render tweets page by looping through tweets data given
