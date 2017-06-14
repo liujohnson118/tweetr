@@ -21,3 +21,70 @@
 .new-tweet h2{
    border-bottom: 1px solid #000;
 }
+
+.container{
+  margin: auto;
+  background: white;
+  width: 450px;
+  padding: 2em ;
+ }
+
+ article.tweet {
+  margin: 20px 0px;
+  border-radius: 6px;
+  border: 1px solid grey;
+ }
+
+ article.tweet header{
+  height: 60px;
+  padding-left: 2em;
+  background: #eee;
+ }
+
+article.tweet span{
+  padding-left: 1em;
+  padding-top: 2em;
+  float: left;
+}
+
+article.tweet span.handle{
+  padding-right: 2px;
+  float: right;
+}
+ article.tweet p{
+  float: left;
+  padding: 1em;
+ }
+
+ article.tweet .profilePhoto{
+  float: left;
+/*  padding-top: 1em;
+  padding-bottom: 1em;*/
+  padding: 4px;
+  height: 60px;
+  width: 60px;
+ }
+
+article.tweet footer{
+  padding-left: 2em;
+  border-top: 1px solid #000
+ }
+
+ article.tweet:hover i.fa{
+  float: right;
+  padding-right: 4px;
+  display: block;
+ }
+
+i.fa{
+  display: none;
+ }
+
+ article.tweet span.ago{
+  padding-top: 0px;
+  padding-left: 0px;
+  float: left;
+ }
+ .clearfix {
+  clear:both;
+ }

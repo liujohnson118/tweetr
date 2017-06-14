@@ -11,6 +11,7 @@
 /*
 * Sample tweet data given
 */
+
 var data = [
   {
     "user": {
@@ -89,7 +90,8 @@ function createTweetElement(tweetData){
   tweetHeader.append("<div class='clearfix'></div>");
 
   //Begin editing footer
-  tweetFooter.append("<span class='ago'>10 days ago</span>");
+  const creationTime=new Date();
+  tweetFooter.append($("<span class='ago'>").text((new Date()-creationTime)+"ms ago"));
   tweetFooter.append("<i class='fa fa-heart' aria-hidden='true'></i>");
   tweetFooter.append("<i class='fa fa-retweet' aria-hidden='true'></i>");
   tweetFooter.append("<i class='fa fa-flag' aria-hidden='true'></i>");
@@ -117,5 +119,5 @@ function renderTweets(tweets){
   }
 }
 
-
+//console.log(moment());
 renderTweets(data);
