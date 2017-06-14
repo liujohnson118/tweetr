@@ -61,9 +61,11 @@ article.tweet span.handle{
 
  article.tweet .profilePhoto{
   float: left;
-  padding-top: 1em;
-  height: 50px;
-  width: 50px;
+/*  padding-top: 1em;
+  padding-bottom: 1em;*/
+  padding: 4px;
+  height: 60px;
+  width: 60px;
  }
 
 article.tweet footer{
