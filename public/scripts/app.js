@@ -14,54 +14,56 @@
 
 
 "use strict";
-var data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": {
-        "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
-        "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
-        "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
-      },
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": {
-        "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
-        "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
-        "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
-      },
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  },
-  {
-    "user": {
-      "name": "Johann von Goethe",
-      "avatars": {
-        "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
-        "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
-        "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
-      },
-      "handle": "@johann49"
-    },
-    "content": {
-      "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
-    },
-    "created_at": 1461113796368
-  }
-];
+// var data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": {
+//         "small":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png",
+//         "regular": "https://vanillicon.com/788e533873e80d2002fa14e1412b4188.png",
+//         "large":   "https://vanillicon.com/788e533873e80d2002fa14e1412b4188_200.png"
+//       },
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": {
+//         "small":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_50.png",
+//         "regular": "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc.png",
+//         "large":   "https://vanillicon.com/7b89b0d8280b93e2ba68841436c0bebc_200.png"
+//       },
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   },
+//   {
+//     "user": {
+//       "name": "Johann von Goethe",
+//       "avatars": {
+//         "small":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_50.png",
+//         "regular": "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1.png",
+//         "large":   "https://vanillicon.com/d55cf8e18b47d4baaf60c006a0de39e1_200.png"
+//       },
+//       "handle": "@johann49"
+//     },
+//     "content": {
+//       "text": "Es ist nichts schrecklicher als eine tätige Unwissenheit."
+//     },
+//     "created_at": 1461113796368
+//   },
+// ];
 
 
+//1497499683600
+//1461113796368
 /*
 * Function to create a tweet for display
 * Input: tweetData-an object for tweet reference tweets.json
@@ -122,10 +124,57 @@ function renderTweets(tweets){
   }
 }
 
-//Render tweets
-renderTweets(data);
+/*
+* Function for handling POST requests for new tweet
+* If user input text is not empty and length is within 140, send ajax POST request to create new tweet
+* Otherwise print error flash message near the character counter
+*/
 
-//Modify posting times of tweets to relative times
+$(function(){
+  $('#newTweetArea').on('submit',function(event){
+    event.preventDefault();
+    let text = $('#newTweetArea').closest('.new-tweet').find('textarea').val();
+    if(text.length>0 && text.length<=140){
+      $.ajax({
+      method:'POST',
+      url: '/tweets/',
+      data: $(this).serialize(),
+      success: function(tweets){
+        renderTweets(tweets);
+      },
+      error: function(tweets){
+        console.log("POST for /tweets/ in app.js NOT WORKING");
+      },
+    });
+    }else{
+      $('#newTweetArea').closest('.new-tweet').find('.flashMessage').text("Invalid tweet text");
+    }
+  });
+})
+
+/*
+* Function to load tweets
+* Ajax GET method for rendering (loading) all tweets
+* Render all tweets by calling renderTweets in app.js
+* If error happends, log error message to console
+*/
+$(document).ready(function loadTweets(){
+  $.ajax({
+    method: 'GET',
+    url: '/tweets',
+    success: function(tweets){
+      renderTweets(tweets);
+    },
+    error: function(tweets){
+      console.log("loadingTweets in app.js NOT WORKING");
+    },
+  });
+});
+
+
+/*
+* Function to modify posting times of tweets to relative times using timeago
+*/
 $(document).ready(function() {
   $("time.timeago").timeago();
 });
