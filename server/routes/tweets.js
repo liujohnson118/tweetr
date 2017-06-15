@@ -8,6 +8,7 @@ const tweetsRoutes  = express.Router();
 module.exports = function(DataHelpers) {
 
   tweetsRoutes.get("/", function(req, res) {
+    //loadTweets();
     DataHelpers.getTweets((err, tweets) => {
       if (err) {
         res.status(500).json({ error: err.message });
@@ -15,6 +16,8 @@ module.exports = function(DataHelpers) {
         res.json(tweets);
       }
     });
+
+    //loadTweets();
   });
 
   tweetsRoutes.post("/", function(req, res) {
@@ -39,6 +42,7 @@ module.exports = function(DataHelpers) {
         res.status(201).send();
       }
     });
+    //loadTweets();
   });
 
   return tweetsRoutes;

@@ -162,7 +162,7 @@ $(function(){
   */
   $('#newTweetArea').on('submit',function(event){
     event.preventDefault();
-    //loadTweets();
+    loadTweets();
     let text = $('#newTweetArea').closest('.new-tweet').find('textarea').val();
     if(text.length>0 && text.length<=140){
       $.ajax({
