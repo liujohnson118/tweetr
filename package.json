@@ -16,7 +16,8 @@
     "express": "^4.15.3",
     "md5": "^2.2.1",
     "moment": "^2.18.1",
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "timeago": "^1.5.4"
   },
   "devDependencies": {
     "nodemon": "^1.9.2"

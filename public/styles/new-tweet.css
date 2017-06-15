@@ -80,7 +80,7 @@ i.fa{
   display: none;
  }
 
- article.tweet span.ago{
+ article.tweet time.timeago{
   padding-top: 0px;
   padding-left: 0px;
   float: left;

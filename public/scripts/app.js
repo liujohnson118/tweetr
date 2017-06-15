@@ -12,6 +12,7 @@
 * Sample tweet data given
 */
 
+
 "use strict";
 var data = [
   {
@@ -79,22 +80,20 @@ function createTweetElement(tweetData){
   tweetHeader.append(profilePhoto);
 
   //Add name to header
-  let tweetHeaderName = $("<span>").text(tweetData.user.name); //Add user name to header
-  tweetHeaderName.addClass("name");
+  let tweetHeaderName = $("<span class=name>").text(tweetData.user.name); //Add user name to header
   tweetHeader.append(tweetHeaderName);
 
   //Add handle to header
-  let tweetHeaderHandle = $("<span>").text(tweetData.user.handle); //Add user name to header
-  tweetHeaderHandle.addClass("handle");
+  let tweetHeaderHandle = $("<span class='handle'>").text(tweetData.user.handle); //Add user name to header
   tweetHeader.append(tweetHeaderHandle);
 
   //Add clear fix to header
   tweetHeader.append("<div class='clearfix'></div>");
 
   //Begin editing footer
-  let creationTime = new Date(tweetData.created_at);
-  creationTime=String(creationTime).split("GMT")[0];
-  tweetFooter.append($("<span class='ago'>").text("Posted at "+creationTime));
+  tweetFooter.append($("<time class=timeago>").attr("datetime",new Date(tweetData.created_at))); //relative time of creation
+
+  //Add retweet, heart, flag buttons
   tweetFooter.append("<i class='fa fa-heart' aria-hidden='true'></i>");
   tweetFooter.append("<i class='fa fa-retweet' aria-hidden='true'></i>");
   tweetFooter.append("<i class='fa fa-flag' aria-hidden='true'></i>");
@@ -123,5 +122,10 @@ function renderTweets(tweets){
   }
 }
 
-//console.log(moment());
+//Render tweets
 renderTweets(data);
+
+//Modify posting times of tweets to relative times
+$(document).ready(function() {
+  $("time.timeago").timeago();
+});
