@@ -76,9 +76,13 @@ article.tweet footer{
   display: block;
  }
 
-i.fa{
+ .hover-show.hover-show{
   display: none;
  }
+ .hover-show.hover-show:hover{
+  display: block;
+ }
+
 
  article.tweet time.timeago{
   padding-top: 0px;
