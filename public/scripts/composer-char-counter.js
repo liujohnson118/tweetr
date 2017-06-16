@@ -3,7 +3,7 @@
 * Output: update remaning character count in the counter for a new tweet.
 */
 $(document).ready(function(){
-  const maxLength=Number($('.counter').html());
+  const maxLength=Number($('.counter').text());
   $('.new-tweet').on('keyup','textarea',function(){
     let messageLength = $(this).val().length;
     $(this).closest('form').find('.counter').text(maxLength-messageLength);

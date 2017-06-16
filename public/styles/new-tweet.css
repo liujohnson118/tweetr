@@ -41,6 +41,10 @@
   background: #eee;
  }
 
+article.tweet p{
+  padding-left: 10px;
+}
+
 article.tweet span{
   padding-left: 1em;
   padding-top: 2em;
@@ -51,15 +55,13 @@ article.tweet span.handle{
   padding-right: 2px;
   float: right;
 }
- article.tweet p{
-  float: left;
-  padding: 1em;
+ article.tweet .iconContainer p{
+  float: right;
+  padding-left: 5px;
  }
 
  article.tweet .profilePhoto{
   float: left;
-/*  padding-top: 1em;
-  padding-bottom: 1em;*/
   padding: 4px;
   height: 60px;
   width: 60px;
@@ -67,28 +69,47 @@ article.tweet span.handle{
 
 article.tweet footer{
   padding-left: 2em;
-  border-top: 1px solid #000
+  border-top: 1px solid #000;
+  height: 30px;
+  margin-bottom: 10px;
  }
 
- article.tweet:hover i.fa{
+article.tweet footer p{
+  margin:0;
   float: right;
-  padding-right: 4px;
-  display: block;
- }
+}
 
- .hover-show.hover-show{
+
+ article.tweet .iconContainer{
   display: none;
  }
- .hover-show.hover-show:hover{
+
+ article.tweet:hover .iconContainer{
+  float: right;
+  padding-right: 14px;
   display: block;
  }
 
+
+
+.fa-pencil-square-o{
+  float: left;
+}
+
+article.tweet:hover header{
+  background: #BDBDBD;
+}
 
  article.tweet time.timeago{
   padding-top: 0px;
   padding-left: 0px;
   float: left;
  }
+
+#counterMaxLength{
+  display: none;
+}
+
  .clearfix {
   clear:both;
  }

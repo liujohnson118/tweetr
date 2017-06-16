@@ -38,9 +38,7 @@ MongoClient.connect(MONGODB_URI,(err, db)=>{
     throw err;
   }
   const DataHelpers = require("./lib/data-helpers.js")(db);
-  //console.log("DataHelpers: "+DataHelpers);
   const tweetsRoutes = require("./routes/tweets")(DataHelpers);
-  //console.log("tweetsRoutes"+tweetsRoutes);
   app.use("/tweets", tweetsRoutes);
 });
 
