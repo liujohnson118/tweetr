@@ -15,3 +15,16 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- body-parser
+- chance
+- express
+- md5
+- moment
+- mongodb
+- nodemon
+
+## Remarks
+
+Everything should work as specified. Extra features implemented for counting likes, retweets, and flags. 
+
+User login will be added over the weekend, if time permits. 
