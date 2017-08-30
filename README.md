@@ -15,6 +15,7 @@ Tweeter is a simple, single-page Twitter clone.
 * JSX
 * CSS
 * MongoDB
+* jQUery
 
 ## Dependencies
 
@@ -30,4 +31,10 @@ Tweeter is a simple, single-page Twitter clone.
 
 ## User Experience
 - As a user, you can create tweets using the form as shown below
-
+!["homepage"](https://github.com/liujohnson118/tweetr/blob/master/docs/home.png)
+- The form can appear and disapper by clicking "compose" on the top right corner
+- The form can accept a maximum of 140 characters. It will stop recording text if the text is more than 140 characters.
+- You can see other users' tweets
+!["tweets"](https://github.com/liujohnson118/tweetr/blob/master/docs/tweets.png)
+- When hovering hover a tweet, the emojis for flag, retweet, and like will be displayed. Once clicked, the counter for those emojis will change accordingly
+!["emoji"](https://github.com/liujohnson118/tweetr/blob/master/docs/emoji.png)
