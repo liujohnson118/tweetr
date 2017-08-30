@@ -2,8 +2,6 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express and MongoDB back-end skills.
-
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
@@ -11,20 +9,25 @@ This repository is the starter code for the project: Students will fork and clon
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
+## Technologies Used
+
+* ExpressJS
+* JSX
+* CSS
+* MongoDB
+
 ## Dependencies
 
-- Express
-- Node 5.10.x or above
-- body-parser
-- chance
-- express
-- md5
-- moment
-- mongodb
-- nodemon
+- Dependencies are listed in `package.json`
+- Install dependencies using the `npm install` command.
+
 
 ## Remarks
 
-Everything should work as specified. Extra features implemented for counting likes, retweets, and flags. 
+- Everything should work as specified. Extra features implemented for counting likes, retweets, and flags.
+- Currently, the users are a lists of pre-defined figures and their info is managed by MongoDB.
+- User registration and login will be added, if time permits.
 
-User login will be added over the weekend, if time permits. 
+## User Experience
+- As a user, you can create tweets using the form as shown below
+
